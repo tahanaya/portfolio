@@ -1,0 +1,133 @@
+/* Navbar Component Styles */
+
+/* Inherit sticky behavior from global.css but extend with custom transitions */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  background: rgba(10, 25, 47, 0.9);
+  padding: 1rem 2rem;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* When scrolled, add a subtle shadow and deepen background */
+.navbar.scrolled {
+  background: rgba(10, 25, 47, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Container to center content and limit width */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo styling */
+.logo a {
+  color: #64ffda;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #52e0c4;
+}
+
+/* Mobile menu icon */
+.menu-icon {
+  display: none;
+  color: #64ffda;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: #ccd6f6;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #64ffda;
+}
+
+/* Underline effect on hover */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #64ffda;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+/* Social Icons */
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.socials a {
+  color: #ccd6f6;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: #64ffda;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  /* Mobile navigation menu slides in from the right */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background: rgba(10, 25, 47, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  /* Hide socials in mobile view to keep design clean */
+  .socials {
+    display: none;
+  }
+}

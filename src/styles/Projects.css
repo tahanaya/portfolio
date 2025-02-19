@@ -1,0 +1,173 @@
+/* Projects Section */
+.projects-section {
+    padding: 5rem 2rem;
+    background: #0a192f;
+    color: #ccd6f6;
+    text-align: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .projects-header {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+  
+  .highlight {
+    color: #64ffda;
+  }
+  
+  /* Scroll Buttons */
+  .scroll-buttons {
+    position: absolute;
+    top: 59%;
+    left: -40px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 0 1rem; /* Add padding to prevent buttons from touching edges */
+  }
+  
+  .scroll-button {
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid #64ffda;
+    color: #64ffda;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    top: 58%; /* Adjust this percentage to move buttons up or down */
+    left: -40px;
+    right: 0;
+  }
+  
+  .scroll-button:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: scale(1.1);
+  }
+  
+  /* Projects Grid Wrapper */
+  .projects-grid-wrapper {
+    overflow: hidden;
+    padding: 2rem 0;
+    position: relative;
+  }
+  
+  .projects-grid {
+    display:flex;
+    justify-content: center;
+    gap: 9rem; /* Increased gap between cards */
+    width: max-content;
+    padding: 0 2rem; /* Add padding to center the grid */
+  }
+  
+  /* Each card mimics a Yu-Gi-Oh card */
+  .project-card {
+    width: 300px;
+    height: 420px;
+    perspective: 1000px;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  
+  .project-card.active {
+    transform: scale(1);
+  }
+  
+  /* Both sides of the card */
+  .card-back,
+  .card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #f2f06fec; /* Gold border for a Yu-Gi-Oh feel */
+    border-radius: 14px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  /* Card Back: Default view */
+  .card-back {
+    background: radial-gradient(circle, #1e1e1e, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Optional design for card back (e.g., a pattern image) */
+  .card-back-design {
+    width: 100%;
+    height: 100%;
+    background: url('imageyugi.png'); /* Replace or remove if not used */
+    background-size: cover;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Emblem in the center of the card back */
+  .emblem {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #0e0d0200, #020202);
+    border-radius: 50%;
+  }
+  
+  /* Card Front: Revealed view */
+  .card-front {
+    background: url('imageyugif.png');
+    background-size: cover;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a192f;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  
+  .card-front-content {
+    text-align: center;
+  }
+  
+  .project-image {
+    position: absolute;
+    width: 265px;
+    height: 270px;
+    left: 35px;
+    top: 90px;
+  }
+  
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #aae7d9;
+    top: -5px;
+    left: 20px;
+    position: absolute;
+  }
+  
+  .project-description {
+    font-size: 1rem;
+    line-height: 1.2;
+    bottom: 180px;
+    top: 370px;
+    left: 20px;
+    position: absolute;
+    color: #06080d;
+  }
