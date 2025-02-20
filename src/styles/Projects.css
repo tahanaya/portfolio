@@ -10,6 +10,7 @@
   
   .projects-container {
     max-width: 1400px;
+
     margin: 0 auto;
     position: relative;
   }
@@ -68,7 +69,7 @@
     justify-content: center;
     gap: 9rem; /* Increased gap between cards */
     width: max-content;
-    padding: 0 2rem; /* Add padding to center the grid */
+    padding: 0 11rem; /* Add padding to center the grid */
   }
   
   /* Each card mimics a Yu-Gi-Oh card */
@@ -91,7 +92,7 @@
   .card-back,
   .card-front {
     position: absolute;
-    width: 100%;
+    width: 91%;
     height: 100%;
     border: 3px solid #f2f06fec; /* Gold border for a Yu-Gi-Oh feel */
     border-radius: 14px;
@@ -129,8 +130,11 @@
   
   /* Card Front: Revealed view */
   .card-front {
-    background: url('imageyugif.png');
+    background: url('imgyugif2.png');
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     transform: rotateY(180deg);
     display: flex;
     align-items: center;
@@ -146,10 +150,10 @@
   
   .project-image {
     position: absolute;
-    width: 265px;
-    height: 270px;
-    left: 35px;
-    top: 90px;
+    width: 250px;
+    height: 250px;
+    left: 26px;
+    top: 75px;
   }
   
   .project-title {
@@ -157,7 +161,7 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #aae7d9;
-    top: -5px;
+    top: -14px;
     left: 20px;
     position: absolute;
   }
@@ -166,8 +170,8 @@
     font-size: 1rem;
     line-height: 1.2;
     bottom: 180px;
-    top: 370px;
-    left: 20px;
+    top: 350px;
+    left: 0px;
     position: absolute;
     color: #06080d;
   }

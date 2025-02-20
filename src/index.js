@@ -8,7 +8,8 @@ import './styles/global.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
-    
+    <title>Taha Naya</title>
+
     <App />
   </div>
 );

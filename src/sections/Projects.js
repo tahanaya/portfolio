@@ -9,11 +9,7 @@ const Projects = () => {
   const controls = useAnimation();
 
   const projects = [
-    {
-      title: 'Jarvice Assistant',
-      description: 'A voice assistant for personalized usage.',
-      image: '/jarvice.png', // Replace with your image path
-    },
+   
     {
       title: 'EcoMarket',
       description: 'A sustainable e-commerce platform connecting local producers with eco-conscious consumers.',
@@ -40,6 +36,7 @@ const Projects = () => {
       description: 'An interactive travel planning app that aggregates destination data.',
       image: '/travelexp.png', // Replace with your image path
     },
+    
   
   ];
 
