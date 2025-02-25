@@ -1,0 +1,61 @@
+# azure-pipelines.yml
+
+trigger:
+  branches:
+    include:
+      - main  # Trigger pipeline on changes to the main branch
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use the latest Ubuntu image
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+# Step 1: Use Node.js
+- task: UseNode@1
+  inputs:
+    version: '18.x'  # Use Node.js 18.x
+
+# Step 2: Install dependencies
+- script: |
+    npm install
+  displayName: 'Install dependencies'
+
+# Step 3: Build the project
+- script: |
+    npm run build
+  displayName: 'Build project'
+
+# Step 4: Run tests (optional)
+- script: |
+    npm test
+  displayName: 'Run tests'
+
+# Step 5: Archive the build folder
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)/build'  # Path to the build folder
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  displayName: 'Archive build folder'
+
+# Step 6: Publish the build artifact
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish build artifact'
+
+# Step 7: Deploy to Azure App Service
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Service1'  # Replace with your Azure service connection name
+    appType: 'webAppLinux'  # Use 'webApp' for Windows or 'webAppLinux' for Linux
+    appName: 'portfolio'  # Replace with your Azure App Service name
+    package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    runtimeStack: 'NODE|18-lts'  # Node.js runtime stack
+  displayName: 'Deploy to Azure App Service'
